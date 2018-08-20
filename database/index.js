@@ -7,8 +7,6 @@ var connection = mysql.createConnection({
   database : 'review'    //@TODO: Ensure database name matches the database you created
 });
 
-
-
 var selectAll = (callback) => {
   connection.query('SELECT * FROM groceries', function(err, result, fields){
     console.log(err);
@@ -21,7 +19,7 @@ var selectAll = (callback) => {
 };
 
 var insertOne = (description, quantity, callback) => {
-  connection.query('INSERT INTO groceries (description, quantity) value (?,?)' ,[description, quantity], function(err, result, feilds){
+  connection.query('INSERT INTO groceries (description, quantity) value (?,?)' ,[description, quantity], function(err, result, fields){
     if(err){
       callback(err,null);
     }else {
