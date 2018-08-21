@@ -10,13 +10,13 @@ app.use(express.static(__dirname + '/../client/dist'));
 app.post('/groceries', function (req, res) {
   console.log(req.body);
   let description = req.body.description;
-  let quanity = req.body.quanity !== undefined ? Number(req.body.quanity):1;
+  let quantity = req.body.quantity !== undefined ? Number(req.body.quantity):1;
 
   if(!description) {
     res.sendStatus(400);
 
   }else {
-    groceries.insertOne(description, quanity, function(err, data){
+    groceries.insertOne(description, quantity, function(err, data){
       if(err) {
         res.sendStatus(500);
       }else {

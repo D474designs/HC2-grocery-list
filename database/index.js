@@ -19,7 +19,7 @@ var selectAll = (callback) => {
 };
 
 var insertOne = (description, quantity, callback) => {
-  connection.query('INSERT INTO groceries (description, quantity) value (?,?)' ,[description, quantity], function(err, result, fields){
+  connection.query('INSERT INTO groceries (description, quantity) VALUES (?,?)', [description, quantity], function(err, result, fields){
     if(err){
       callback(err,null);
     }else {

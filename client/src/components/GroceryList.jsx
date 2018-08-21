@@ -9,7 +9,6 @@ const GroceryList = (props) => (
 		<GroceryItem item={item} key={i}/>
 	)}
 	</div>
-
 	);
 
 export default GroceryList;

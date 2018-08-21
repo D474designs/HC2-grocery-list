@@ -21,7 +21,7 @@ class App extends React.Component {
   }
 
   AddGroceryItem (description, quantity) {
-    console.log('des', description );
+    console.log('des', description, quantity);
     $.ajax({
       url:'/groceries',
       type: "POST",
@@ -49,7 +49,7 @@ class App extends React.Component {
         });
       },
       error: (xhr, err) => {
-        console.log('err', err);
+        console.log('cant get groceries', err);
       }
 
 
@@ -64,9 +64,10 @@ class App extends React.Component {
     return (
     	<div>
     	<h1>Grocery List</h1>
-
-    	<AddGrocery AddGroceryItem={this.AddGroceryItem}/>
-    	<GroceryList list={this.state.list}/>
+    	<AddGrocery
+      AddGroceryItem={this.AddGroceryItem}/>
+    	<GroceryList
+      list={this.state.list}/>
     	</div>
     )
   }

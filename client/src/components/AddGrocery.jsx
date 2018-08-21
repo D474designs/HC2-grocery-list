@@ -5,14 +5,14 @@ class AddGrocery extends React.Component {
     super(props);
     this.state = {
       description: '',
-      quanitity: ''
+      quantity: ''
     }
-    this.updateDescritption = this.updateDescritption.bind(this);
+    this.updateDescription = this.updateDescription.bind(this);
     this.updateQuantity=this.updateQuantity.bind(this);
     this.add=this.add.bind(this);
   }
 
-  updateDescritption (e) {
+  updateDescription (e) {
     this.setState({
       description: e.target.value
     })
@@ -20,22 +20,18 @@ class AddGrocery extends React.Component {
 
    updateQuantity (e) {
     this.setState({
-      quanitity: e.target.value
+      quantity: e.target.value
     })
   }
 
   add () {
-
-    this.props.AddGroceryItem(this.state.description, this.state.quanitity);
+    this.props.AddGroceryItem(this.state.description, this.state.quantity);
   }
 
   render () {
     return (
     	<div>
-        Description: <input onChange={this.updateDescritption} value={this.state.description}></input>
-        <br/>
-        Quantity: <input onChange={this.updateQuantity} value={this.state.quanitity}></input>
-        <button onClick={this.add}>AddGrocery</button>
+        Description:<input onChange={this.updateDescription} value={this.state.description}></input> Quantity:<input onChange={this.updateQuantity} value={this.state.quantity}></input> <button onClick={this.add}>AddGrocery</button>
     	</div>
     )
   }
